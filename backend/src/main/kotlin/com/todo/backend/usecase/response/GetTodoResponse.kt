@@ -1,4 +1,4 @@
-package com.todo.backend.usecase
+package com.todo.backend.usecase.response
 
 data class GetTodoResponse(
     val id: Int,

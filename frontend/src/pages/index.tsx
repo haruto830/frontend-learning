@@ -6,7 +6,7 @@ type Todo = {
   id: number;
   title: string;
   description: string;
-  isDone: boolean;
+  isCompleted: boolean;
 };
 
 type Props = {
@@ -42,8 +42,10 @@ export default function Home(props: Props) {
   );
 }
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:8080/todos");
+  const res = await fetch(`${apiUrl}/todos`);
   const todos: Todo[] = await res.json();
 
   return {
