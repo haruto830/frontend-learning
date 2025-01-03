@@ -5,7 +5,8 @@ import { Button, List, ListItem, ListItemText, TextField } from "@mui/material";
 type Todo = {
   id: number;
   title: string;
-  completed: boolean;
+  description: string;
+  isDone: boolean;
 };
 
 type Props = {
@@ -42,10 +43,8 @@ export default function Home(props: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const todos: Todo[] = [
-    { id: 1, title: "テスト１", completed: false },
-    { id: 2, title: "テスト２", completed: false },
-  ];
+  const res = await fetch("http://localhost:8080/todos");
+  const todos: Todo[] = await res.json();
 
   return {
     props: {
