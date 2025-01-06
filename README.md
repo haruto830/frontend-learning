@@ -12,10 +12,12 @@
 └── frontend  # フロントエンド (Webアプリ)
 ```
 
-各コンポーネントはdockerコンテナで動作し、以下のように通信します
+各コンポーネントはdockerコンテナで動作し、以下のように通信します。  
 `Frontend  →  Backend  →  Database`
 
 ## 起動手順
+※Dockerがインストールされている前提です。
+
 ```bash
 docker compose build
 docker compose up -d
